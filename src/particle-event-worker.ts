@@ -31,9 +31,9 @@ const subscribeFunction = (prefix: string, handlerId: string): void => {
             data: <TNSParticleEvent>{
               prefix,
               event: eventName,
-              data: event.dataPayload,
-              date: new Date(event.publishedAt.getTime()),
-              deviceID: event.deviceId
+              data: event.getDataPayload(),
+              date: new Date(event.getPublishedAt().getTime()),
+              deviceID: event.getDeviceId()
             }
           });
         }

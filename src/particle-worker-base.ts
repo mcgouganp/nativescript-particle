@@ -83,9 +83,9 @@ export class MyTNSParticleDevice implements TNSParticleDevice {
               data: <TNSParticleEvent>{
                 prefix,
                 event: eventName,
-                data: event.dataPayload,
-                date: new Date(event.publishedAt.getTime()),
-                deviceID: event.deviceId
+                data: event.getDataPayload(),
+                date: new Date(event.getPublishedAt().getTime()),
+                deviceID: event.getDeviceId()
               }
             });
           }

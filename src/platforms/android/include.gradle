@@ -17,7 +17,7 @@ dependencies {
     implementation "com.squareup.okhttp:okhttp:2.7.5"
     implementation "com.google.code.gson:gson:2.8.2"
 
-    implementation("io.particle:cloudsdk:0.5.1") {
+    implementation("io.particle:cloudsdk:1.0.0") {
         transitive = false
     }
 
@@ -29,7 +29,7 @@ dependencies {
     implementation "com.jakewharton:butterknife:8.8.1"
     implementation "com.madgag.spongycastle:core:1.58.0.0"
 
-    implementation("io.particle:devicesetup:0.6.0") {
+    implementation("io.particle:devicesetup:0.6.3") {
         transitive = false
     }
 }
