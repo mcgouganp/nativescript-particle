@@ -1,7 +1,7 @@
 platform :ios, '9.0'
 
 pod 'Particle-SDK', '~> 1.0.4'
-pod 'ParticleSetup', '~> 1.0.2'
+pod 'ParticleSetup', '~> 1.0.3'
 
 #pod 'Particle-SDK', :git => 'https://github.com/particle-iot/particle-cloud-sdk-ios.git', :tag => '1.0.1'
 #pod 'ParticleSetup', :git => 'https://github.com/particle-iot/particle-photon-setup-ios.git', :tag => '1.0.1'
