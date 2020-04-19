@@ -238,6 +238,13 @@ Removes this device from your account.
 myDevice.unclaim();
 ```
 
+#### `<device>.refresh`
+Refreshes this device. Updates connection status and populates device available variables and functions.
+
+```typescript
+myDevice.refresh();
+```
+
 ## Thanks!
 [markoImake](https://github.com/markoImake) for adding a few [very cool features](https://github.com/EddyVerbruggen/nativescript-particle/pull/2).
 
