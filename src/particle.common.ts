@@ -66,6 +66,7 @@ export interface TNSParticleDevice {
   subscribe: (prefix: string, eventHandler: (event: TNSParticleEvent) => void) => void;
   unsubscribe: (prefix: string) => void;
   unclaim: () => Promise<void>;
+  refresh: () => Promise<void>;
 }
 
 export interface TNSParticleLoginOptions {

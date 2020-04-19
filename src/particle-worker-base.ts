@@ -111,8 +111,32 @@ export class MyTNSParticleDevice implements TNSParticleDevice {
 
   unclaim(): Promise<void> {
     return new Promise<any>((resolve, reject) => {
-      this.particleDevice.unclaim();
-      resolve();
+      try {
+        this.particleDevice.unclaim();
+        resolve();
+      } catch (e) {
+        console.log(e.nativeException.getBestMessage());
+        reject(e.nativeException.getBestMessage());
+      }
+    });
+  }
+
+  refresh(): Promise<void> {
+    return new Promise<any>((resolve, reject) => {
+      try {
+        this.particleDevice.refresh();
+        this.id = this.particleDevice.getID();
+        this.name = this.particleDevice.getName();
+        this.status = this.particleDevice.isConnected() ? this.particleDevice.getStatus() : "offline";
+        this.connected = this.particleDevice.isConnected();
+        this.type = getDeviceType(this.particleDevice.getProductID());
+        this.functions = toJsArray(this.particleDevice.getFunctions());
+        this.variables = toJsonVariables(this.particleDevice.getVariables());
+        resolve();
+      } catch (e) {
+        console.log(e.nativeException.getBestMessage());
+        reject(e.nativeException.getBestMessage());
+      }
     });
   }
 }

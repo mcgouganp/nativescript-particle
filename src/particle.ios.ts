@@ -136,6 +136,26 @@ class MyTNSParticleDevice implements TNSParticleDevice {
         error => error ? reject(error.localizedDescription) : resolve());
     });
   }
+
+  refresh(): Promise<void> {
+    return new Promise<any>((resolve, reject) => {
+      this.nativeDevice.refresh(error => {
+        if(error) {
+          reject(error.localizedDescription);
+          return;
+        }
+        this.id = this.nativeDevice.id;
+        this.name = this.nativeDevice.name;
+        this.status = this.nativeDevice.status;
+        this.connected = this.nativeDevice.connected;
+        this.type = getDeviceType(this.nativeDevice.type);
+        this.functions = toJsArray(this.nativeDevice.functions);
+        this.variables = toJsonVariables(this.nativeDevice.variables);
+        resolve();
+      });
+    });
+  }
+
 }
 
 export class Particle implements TNSParticleAPI {
