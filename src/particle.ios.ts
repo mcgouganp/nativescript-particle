@@ -140,7 +140,7 @@ class MyTNSParticleDevice implements TNSParticleDevice {
   refresh(): Promise<void> {
     return new Promise<any>((resolve, reject) => {
       this.nativeDevice.refresh(error => {
-        if(error) {
+        if (error) {
           reject(error.localizedDescription);
           return;
         }
